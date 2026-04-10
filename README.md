@@ -28,15 +28,15 @@ python3 md2pdf.py
 
 脚本会自动扫描当前目录下所有 `.md` 文件，为每个文件生成对应的 `.html`。
 
-### 第二步：启动本地 HTTP 服务
+### 第二步：将 HTML 转为 PDF（两种方式任选其一）
 
-Playwright 不支持 `file://` 协议，需要通过 HTTP 服务器提供文件：
+#### 方式一：通过 Playwright 自动生成（Claude Code 环境）
+
+启动本地 HTTP 服务（Playwright 不支持 `file://` 协议）：
 
 ```bash
 python3 -m http.server 8899
 ```
-
-### 第三步：在 Claude Code 中用 Playwright 生成 PDF
 
 在 Claude Code 对话中执行以下操作：
 
@@ -68,9 +68,32 @@ python3 -m http.server 8899
    });
    ```
 
-### 一句话完成
+#### 方式二：浏览器打印保存为 PDF（手动操作）
 
-也可以直接告诉 Claude Code：
+1. 启动本地 HTTP 服务：
+   ```bash
+   python3 -m http.server 8899
+   ```
+
+2. 在浏览器中打开生成的 HTML 文件：
+   ```
+   http://localhost:8899/讲义.html
+   ```
+
+3. 等待页面完全加载（数学公式渲染完毕），然后使用浏览器的打印功能：
+
+   - **macOS**：`Command + P`
+   - **Windows / Linux**：`Ctrl + P`
+
+4. 在打印对话框中：
+   - 目标打印机选择 **"另存为 PDF"**（或 "Save as PDF"）
+   - 根据需要调整边距、纸张大小等选项
+   - 勾选 **"背景图形"** 以保留代码块等背景色
+   - 点击保存
+
+### 一句话完成（方式一）
+
+直接告诉 Claude Code：
 
 ```
 把当前目录下的 md 文件转换成 pdf，注意图片和数学公式

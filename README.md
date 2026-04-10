@@ -85,6 +85,8 @@ python3 -m http.server 8899
    - **macOS**：`Command + P`
    - **Windows / Linux**：`Ctrl + P`
 
+![](./img/printf.png)
+
 4. 在打印对话框中：
    - 目标打印机选择 **"另存为 PDF"**（或 "Save as PDF"）
    - 根据需要调整边距、纸张大小等选项
@@ -120,3 +122,4 @@ Claude 会自动完成所有步骤。
 - MathJax 从 CDN 加载，需要网络连接
 - 图片使用相对路径，确保 `img/` 目录与 `.md` 文件在同一目录下
 - 导出 PDF 前确保页面已完全加载（特别是公式和图片）
+
